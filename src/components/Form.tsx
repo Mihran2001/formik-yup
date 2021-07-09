@@ -2,6 +2,8 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "./style.css";
+import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import { CustomInputComponent } from "./CustomInput";
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -36,21 +38,29 @@ export const ValidationSchemaExample = () => (
             name="firstName"
             className="inputes"
             placeholder="First Name"
+            component={CustomInputComponent}
           />
-          {errors.firstName && touched.firstName ? (
+          {/* {errors.firstName && touched.firstName ? (
             <div>{errors.firstName}</div>
-          ) : null}
-          <Field name="lastName" className="inputes" placeholder="Last Name" />
-          {errors.lastName && touched.lastName ? (
+          ) : null} */}
+
+          <Field
+            name="lastName"
+            className="inputes"
+            placeholder="Last Name"
+            component={CustomInputComponent}
+          />
+          {/* {errors.lastName && touched.lastName ? (
             <div>{errors.lastName}</div>
-          ) : null}
+          ) : null} */}
           <Field
             name="email"
             type="email"
             className="inputes"
             placeholder="Email"
+            component={CustomInputComponent}
           />
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
+          {/* {errors.email && touched.email ? <div>{errors.email}</div> : null} */}
           <button type="submit" className="button">
             Submit
           </button>
